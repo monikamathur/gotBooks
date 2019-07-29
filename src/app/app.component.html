@@ -1,0 +1,37 @@
+<div class="app">
+  <div class="app-sidebar ">
+    <div class="sidebar-header">
+      <svg class="avatar">
+        <use href="/assets/img/logoVote.png" />
+      </svg>
+      <div class="username">
+        <span>{{userData?.user_name}}</span>
+        <small>{{userData?.user_id}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="app-content">
+    <div class="content-header">
+
+      <nav class="navbar navbar-expand navbar-light bg-white shadow-sm p-3  bg-white rounded pb-2">
+        <div class="navbar-brand">
+          <button type="button" class="btn btn-sidebar" data-toggle="sidebar">
+            <i class="fa fa-bars"></i>
+          </button>
+          <span class="pr-2">Go Vote</span>
+          <a href="https://github.com/monikamathur/voting-management" class="text-dark decoration-none" data-toggle="tooltip"
+            data-placement="right" title="Fork me on GitHub">
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+      </nav>
+
+
+
+      <!-- @@placeholder = breadcrumb -->
+    </div>
+    <div class="content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+$sidebar-link-hover-bg: darken((#f8f9fa)-100, 2%) !default;
+
+  
+  .btn-sidebar {
+    background: transparent;
+    box-shadow: none;
+    font-size: 1.4rem;
+    padding: 0 0 0 0;
+
+  }
+
+  .navbar {
+    padding-bottom: 0;
+    background-color: #2e8cc2;
+  
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+
+      .voteText {
+          color: #fff;
+          margin-left: 53px;
+      }
+      .logoutbtn{
+        position: absolute;
+        left: 88%;
+          }
+    }
+  }
+  
+  .card {
+    box-shadow: 0 0.0625rem 0.125rem 0 rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+
+    .card-header {
+      padding: 1rem 1.25rem;
+    margin-bottom: 0;
+    color: inherit;
+    background-color: #fff;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0;
+      }
+    }
+    .table{
+        .rounded-circle{
+            width: 32px !important;
+        }
+    }
+   
+
+  
+    .list-group {
+      box-shadow: none;
+    }
+  }
+  
