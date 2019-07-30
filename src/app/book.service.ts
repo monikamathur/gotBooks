@@ -19,4 +19,17 @@ export class BookService {
     const url = `${this.bookApiURL}/${id}`;
     return this.httpClient.get(url);
   }
+
+  public addBook(data) {
+    return this.httpClient.post(this.bookApiURL, data);
+  }
+
+  public editBook(data) {
+    return this.httpClient.put(this.bookApiURL, data);
+  }
+
+  public deleteBook(id) {
+    const url = `${this.bookApiURL}/${id}`;
+    return this.httpClient.delete(url);
+  }
 }

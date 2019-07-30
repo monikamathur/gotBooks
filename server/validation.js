@@ -4,8 +4,13 @@ let createValidationFor = (route) => {
     switch (route) {
         case 'addBook':
             return [
-                check('user_id').not().isEmpty().isLength({ min: 5 }),
-                check('password').not().isEmpty().isLength({ min: 4 })
+                check('name').not().isEmpty(),
+                check('isbn').not().isEmpty().isLength({ min: 4 }),
+                check('auther').not().isEmpty(),
+                check('country').not().isEmpty(),
+                check('number_of_pages').not().isEmpty(),
+                check('publisher').not().isEmpty(),
+                check('release_date').not().isEmpty(),
             ];
         default:
             return [];

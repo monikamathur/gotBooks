@@ -10,27 +10,30 @@ var BookSchema = new mongoose.Schema({
     isbn: {
         type: String,
         required: true,
-        unique: false,
+        unique: false
     },
     auther: {
         type: String,
         required: true,
+        trim: true
     },
     country: {
         type: String,
         required: true,
+        trim: true
     },
     number_of_pages: {
         type: Number,
-        default: 0
+        default: 0,
+        required: true
     },
     publisher: {
         type: String,
-        default: 0
+        required: true
     },
     release_date: {
         type: Date,
-        default: 0
+        required: true
     }
 }, { emitIndexErrors: true });
 

@@ -5,17 +5,16 @@ mongoose.connect('mongodb://localhost/got-books', { useNewUrlParser: true })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
   mongoose.set('useCreateIndex', true);
-// var seed = require('./server/seed')
 var bookRouter = require('./server/routes/book');
-// var accountRouter = require('./server/routes/account');
-// var candidateRouter = require('./server/routes/candidate');
 
 var app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'dist/got-books')));
-app.use('/', express.static(path.join(__dirname, 'dist/got-books')));
+app.use(express.static(path.join(__dirname, 'dist/gotBooks')));
+app.use('/', express.static(path.join(__dirname, 'dist/gotBooks')));
+app.use('/add', express.static(path.join(__dirname, 'dist/gotBooks')));
+app.use('/list', express.static(path.join(__dirname, 'dist/gotBooks')));
 app.use('/api/book', bookRouter);
 
 

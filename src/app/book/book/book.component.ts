@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BookService } from '../../book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -10,24 +11,29 @@ import { BookService } from '../../book.service';
 export class BookComponent implements OnInit {
 
   constructor(private BookService: BookService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private router: Router) {
   }
-  candidatesData: any;
+  booksData: any;
   userData: any;
   ngOnInit() {
-    this.getCandidates();
+    this.getBooks();
 
   }
 
-  getCandidates() {
+  getBooks() {
     this.BookService.getBook().subscribe((data) => {
-      this.candidatesData = data;
+      this.booksData = data;
     });
   }
 
-  voteCandidates(id) {
-    this.BookService.getBookById(id).subscribe((data) => {
-      this.toastr.success('Your vote has been submitted successfully', 'Success');
+  editBook(id) {
+    this.router.navigate(['/add', { isEdit: true, id: id }]);
+  }
+
+  deleteBook(id) {
+    this.BookService.deleteBook(id).subscribe((data) => {
+      this.toastr.success(data['message'], 'Success');
+      this.getBooks();
     }, (err) => {
       this.toastr.error(err.error.message, 'Error');
     });

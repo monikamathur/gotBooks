@@ -1,1 +1,77 @@
-<p>add-book works!</p>
+<div class="card m-3">
+    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <div class="card-body">
+        <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>ISBN</label>
+                    <input type="text" formControlName="isbn" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.isbn.errors }" />
+                    <div *ngIf="submitted && f.isbn.errors" class="invalid-feedback">
+                        <div *ngIf="f.isbn.errors.required">ISBN is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                    <div class="form-group col">
+                        <label>Country</label>
+                        <input type="text" formControlName="country" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                            <div *ngIf="f.country.errors.required">country is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label>No. Of Pages</label>
+                        <input type="text" formControlName="number_of_pages" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.number_of_pages.errors }" />
+                        <div *ngIf="submitted && f.number_of_pages.errors" class="invalid-feedback">
+                            <div *ngIf="f.number_of_pages.errors.required">No. Of Pages is required</div>
+                        </div>
+                    </div>
+                </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Auther Name</label>
+                    <input type="text" formControlName="auther" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.auther.errors }" />
+                    <div *ngIf="submitted && f.auther.errors" class="invalid-feedback">
+                        <div *ngIf="f.auther.errors.required">Auther Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Publisher Name  </label>
+                    <input type="text" formControlName="publisher" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.publisher.errors }" />
+
+                    <div *ngIf="submitted && f.publisher.errors" class="invalid-feedback">
+                        <div *ngIf="f.publisher.errors.required">Publisher Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                    <div class="form-group col">
+                        <label>Release Date</label>
+                        <input type="date" formControlName="release_date" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.release_date.errors }" />
+                        <div *ngIf="submitted && f.release_date.errors" class="invalid-feedback">
+                            <div *ngIf="f.release_date.errors.required">Release Date is required</div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

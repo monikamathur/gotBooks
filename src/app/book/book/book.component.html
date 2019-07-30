@@ -1,49 +1,32 @@
-<div class="app">
-    <div class="app-content">
-      <div class="content-header">
-  
-        <nav class="navbar navbar-expand navbar-light voteNav shadow-sm p-3  rounded pb-2">
-          <div class="navbar-brand">
-            <span class="pr-2 voteText">Go Vote</span>
-            <button class="btn btn-light logoutbtn" (click)="logout()"> logout</button>
-          </div>
-        </nav>
-  
-  
-  
-        <!-- @@placeholder = breadcrumb -->
-      </div>
-      <div class="content-body">
-        <div class="container">
-  
-          <div class="card">
-            <table class="table table-hover" *ngIf="!userData.is_voted">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Candidate Name</th>
-                  <th scope="col">Sign</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let candidate of candidatesData">
-                  <th scope="row">{{candidate?.candidate_id}}</th>
-                  <td>{{candidate?.candidate_name}}</td>
-                  <td>
-                    <img class="rounded-circle" style="width:4%;"
-                      [src]="'assets/img/'+ candidate?.candidate_sign+'.png'" />
-                  </td>
-                  <td><a class="btn btn-sm btn-info" (click)="voteCandidates(candidate)"><i
-                        class="fas fa-info-circle"></i> Vote</a> </td>
-                </tr>
-              </tbody>
-            </table>
-            <div *ngIf="userData.is_voted" class="p-5">
-              <span>Thank you for Voting. Your vote has been submitted successfully.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="container">
+
+  <div class="card">
+    <table class="table table-hover" *ngIf="true">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Auther</th>
+          <th scope="col">Country</th>
+          <th scope="col">Publisher</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Number Of Pages</th>
+          <th scope="col">Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of booksData" (click)="editBook(book._id)">
+          <td scope="row">{{book?.name}}</td>
+          <td>{{book?.auther}}</td>
+          <td scope="row">{{book?.country}}</td>
+          <td>{{book?.publisher}}</td>
+          <td scope="row">{{book?.isbn}}</td>
+          <td>{{book?.number_of_pages}}</td>
+          <td scope="row">{{book?.release_date | date:shortDate}}</td>
+
+          <td><a class="btn btn-sm btn-info" (click)="deleteBook(book._id)"><i class="fas fa-info-circle"></i>
+              Delete</a> </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

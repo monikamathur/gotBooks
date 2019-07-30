@@ -1,15 +1,70 @@
-<div class="app">
-  <div class="app-sidebar ">
-    <div class="sidebar-header">
-      <svg class="avatar">
-        <use href="/assets/img/logoVote.png" />
-      </svg>
-      <div class="username">
-        <span>{{userData?.user_name}}</span>
-        <small>{{userData?.user_id}}</small>
-      </div>
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Game of Throns</div>
+    <div class="list-group list-group-flush">
+      <a routerLink="/list" class="list-group-item list-group-item-action bg-light">Books</a>
+      <a routerLink="/add" class="list-group-item list-group-item-action bg-light">Add Book</a>
     </div>
   </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">GOT<span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+
+
+
+<!-- <div class="app">
+    <div class="app-sidebar ">
+        <div class="sidebar-header">
+          <svg class="avatar">
+            <use href="/assets/img/logoVote.png" />
+          </svg>
+        </div>
+        <div id="sidebar-nav" class="sidebar-nav">
+          <ul>
+            <li>
+              <a routerLink="/list">
+                <span class="sidebar-nav-icon fa fa-rocket"></span>
+                <span class="sidebar-nav-text">List</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/add">
+                <span class="sidebar-nav-icon fa fa-rocket"></span>
+                <span class="sidebar-nav-text">Add</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
   <div class="app-content">
     <div class="content-header">
 
@@ -28,10 +83,10 @@
 
 
 
-      <!-- @@placeholder = breadcrumb -->
+
     </div>
     <div class="content-body">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</div> -->

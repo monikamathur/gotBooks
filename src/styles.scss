@@ -1,110 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-$primary: #2e8cc2 !default;
-$black :  #000000 !default;
-$white :  #ffff !default;
-$sidebar-box-shadow-sm: 0 0 .5rem rgba(0, 0%, 0%, .25) !default;
-$body-bg: #f1f4f5 !default;
-$font-family-base: 'Open Sans', sans-serif, arial !default;
-$font-size-base: 1rem !default;
-$sidebar-header-bg-color: $primary !default;
-$sidebar-box-shadow: 0 0 .25rem rgba(0, 0%, 0%, .25) !default;
-$sidebar-box-shadow-sm: 0 0 .5rem rgba(0, 0%, 0%, .25) !default;
-$sidebar-link-color: #495057 !default;
-$sidebar-link-hover-bg: darken((#f8f9fa)-100, 2%) !default;
-$sidebar-link-hover-color: $primary !default;
-$sidebar-width: 16.25rem !default;
-$breakpoint-sm-max: 767.99px !default;
-$card-border-color: rgba($black, .125) !default;
-$card-border-width: 0 !default;
-$card-spacer-y: 1rem !default;
-$card-spacer-x: 1.25rem !default;
-$card-header-border-width: .0625rem !default;
-$card-footer-border-width: .0625rem !default;
-$card-cap-bg: $white !default;
-$card-margin-bottom: 1rem !default;
-
-$table-color: $white !default;
-$table-bg: $white !default;
-$table-border-width: 0 !default;
-$table-cell-padding: .75rem 1rem !default;
-$table-hover-bg: rgba($black, .05) !default;
-@mixin breakpoint-down-to-sm {
-  @media (max-width: $breakpoint-sm-max) {
-    @content;
-  }
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  background: $body-bg;
-  display: flex;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
+  overflow-x: hidden;
 }
 
-.app {
-  display: flex;
-  height: 100%;
-  width: 100%;
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
 
-  .app-sidebar,
-  .app-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
     min-width: 0;
+    width: 100%;
   }
 
-  .app-sidebar {
-    flex-shrink: 0;
-    box-shadow: $sidebar-box-shadow;
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: $sidebar-width;
-    transition: width .3s;
-
-    @include breakpoint-down-to-sm {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-
-      &.show {
-        box-shadow: $sidebar-box-shadow-sm;
-        width: $sidebar-width;
-
-        &::before {
-          visibility: visible;
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .app-content {
-    flex: 1 1 0;
-  }
-
-  .app-sidebar .sidebar-header,
-  .app-content .content-header {
-    flex-shrink: 0;
-  }
-
-  .app-sidebar .sidebar-nav,
-  .app-content .content-body {
-    flex-grow: 1;
-    background-color: #f1f1f1;
-
-  }
-
-  .app-content .content-body {
-    overflow-y: auto;
-    height: 100%;
-        background-color: #f1f1f1;
-
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
   }
 }

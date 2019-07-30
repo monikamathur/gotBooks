@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build && node index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,16 +19,17 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.9.1",
+    "angular-countries": "^1.1.5",
+    "async": "^3.0.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
     "express": "^4.17.1",
+    "express-validator": "^5.3.1",
     "mongoose": "^5.5.11",
     "ngx-toastr": "^10.0.4",
-    "body-parser": "^1.19.0",
-    "async": "^3.0.1",
-    "bootstrap": "^4.3.1",
-    "express-validator": "^5.3.1"
+    "rxjs": "~6.4.0",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.801.2",
