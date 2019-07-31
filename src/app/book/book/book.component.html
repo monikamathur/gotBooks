@@ -16,7 +16,7 @@
       <tbody>
         <tr *ngFor="let book of booksData" (click)="editBook(book._id)">
           <td scope="row">{{book?.name}}</td>
-          <td>{{book?.auther}}</td>
+          <td>{{book?.authers}}</td>
           <td scope="row">{{book?.country}}</td>
           <td>{{book?.publisher}}</td>
           <td scope="row">{{book?.isbn}}</td>

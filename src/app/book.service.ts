@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { APP_CONSTANTS } from './app.constants';
+import { Observable, of } from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +33,12 @@ export class BookService {
   public deleteBook(id) {
     const url = `${this.bookApiURL}/${id}`;
     return this.httpClient.delete(url);
+  }
+
+  public searchBook(name: Observable<string>) {
+    return name.pipe(debounceTime(400),
+    distinctUntilChanged(),
+    switchMap(term => this.httpClient.get( `${this.bookApiURL}/search/${term}`)));
+      
   }
 }

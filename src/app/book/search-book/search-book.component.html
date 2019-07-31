@@ -1,0 +1,19 @@
+<div class="container">
+        <input (keyup)="searchTerm$.next($event.target.value)">
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr >
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of filterData">
+        <td>{{book.name}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.publisher}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

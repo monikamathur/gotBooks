@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { BookService } from '../../book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -16,13 +16,13 @@ export class AddBookComponent implements OnInit {
   isEdit;
   constructor(private formBuilder: FormBuilder, private BookService: BookService,
     private toastr: ToastrService, private route: ActivatedRoute) { }
-
+  authersName: String[];
   ngOnInit() {
 
     this.addBookForm = this.formBuilder.group({
       name: ['', Validators.required],
       isbn: ['', Validators.required],
-      auther: ['', Validators.required],
+      authers: this.formBuilder.array([null, Validators.required]),
       country: ['', Validators.required],
       number_of_pages: ['', Validators.required],
       publisher: ['', Validators.required],
@@ -45,14 +45,14 @@ export class AddBookComponent implements OnInit {
     if (this.addBookForm.invalid) {
       return;
     }
-    if(this.isEdit){
+    if (this.isEdit) {
       this.editBook();
-    }else{
+    } else {
       this.addBook();
     }
   }
- 
-  addBook(){
+
+  addBook() {
     this.BookService.addBook(this.addBookForm.value).subscribe((data) => {
       this.toastr.success('Your book has been added successfully', 'Success');
       this.onReset();
@@ -61,7 +61,7 @@ export class AddBookComponent implements OnInit {
     });
   }
 
-  editBook(){
+  editBook() {
     this.BookService.editBook(this.addBookForm.value).subscribe((data) => {
       this.toastr.success('Your book has been added successfully', 'Success');
       this.onReset();
@@ -82,6 +82,20 @@ export class AddBookComponent implements OnInit {
     }, (err) => {
       this.toastr.error(err.error.message, 'Error');
     });
+  }
+
+  get authers() {
+    return this.addBookForm.get('authers') as FormArray;
+ }
+  addAuther(item) {
+    this.authersName.push(item);
+    this.authers.push(this.formBuilder.control(false));
+  }
+  removeAuther(index) {
+    if (index > -1) {
+      this.authersName.splice(index, 1);
+    }
+    this.authers.removeAt(index);
   }
 
 }

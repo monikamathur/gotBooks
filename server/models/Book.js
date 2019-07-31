@@ -12,11 +12,11 @@ var BookSchema = new mongoose.Schema({
         required: true,
         unique: false
     },
-    auther: {
+    authers: [{
         type: String,
         required: true,
         trim: true
-    },
+    }],
     country: {
         type: String,
         required: true,
