@@ -1,27 +1,29 @@
-# GotBooks
+# voting-management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+### Pre-requisites
+* git - [Installation guide](https://www.linode.com/docs/development/version-control/how-to-install-git-on-linux-mac-and-windows/) .  
+* node.js - [Download page](https://nodejs.org/en/download/) .  
+* npm - comes with node or download yarn - [Download page](https://yarnpkg.com/lang/en/docs/install) .  
+* mongodb - [Download page](https://www.mongodb.com/download-center/community) .  
 
-## Development server
+### Installation 
+``` 
+git clone https://github.com/monikamathur/gotBooks.git
+cd gotBooks
+npm install
+npm start 
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Funcationality
+User visits the URL. A list of books will be shown
+They can add or edit a book by clicking a button
+User can search any book by name in search menu
 
-## Code scaffolding
+### Credentials
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Admin
+   User ID = 12341
+   Password = 1234
+* User
+   User ID = 12342
+   Password = 1234

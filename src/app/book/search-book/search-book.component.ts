@@ -21,6 +21,8 @@ export class SearchBookComponent implements OnInit {
     .subscribe(results => {
       this.loaderService.stopLoading();
       this.filterData = JSON.parse(results['data']);
+      if(!this.filterData.length)
+      this.errorMessage = "No Records Found"
     },
     (err)=>{
       this.loaderService.stopLoading();
