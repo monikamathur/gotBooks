@@ -11,10 +11,12 @@
           <th scope="col">ISBN</th>
           <th scope="col">Number Of Pages</th>
           <th scope="col">Release Date</th>
+          <th scope="col">Action</th>
+
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of booksData" (click)="editBook(book._id)">
+        <tr *ngFor="let book of booksData">
           <td scope="row">{{book?.name}}</td>
           <td>{{book?.authers}}</td>
           <td scope="row">{{book?.country}}</td>
@@ -22,9 +24,12 @@
           <td scope="row">{{book?.isbn}}</td>
           <td>{{book?.number_of_pages}}</td>
           <td scope="row">{{book?.release_date | date:shortDate}}</td>
-
-          <td><a class="btn btn-sm btn-info" (click)="deleteBook(book._id)"><i class="fas fa-info-circle"></i>
-              Delete</a> </td>
+          <td><a class="btn btn-sm btn-info" (click)="editBook(book._id)">
+              <fa name="trash" animation="spin"></fa></a>
+              <a class="btn btn-sm btn-info" (click)="deleteBook(book._id)">
+                <fa name="edit" animation="spin"></fa>
+              </a>
+          </td>
         </tr>
       </tbody>
     </table>

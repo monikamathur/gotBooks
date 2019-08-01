@@ -46,29 +46,33 @@
                         <div *ngIf="f.release_date.errors.required">Release Date is required</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group col">
-                <label>Publisher Name </label>
-                <input type="text" formControlName="publisher" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.publisher.errors }" />
+                <div class="form-group col">
+                    <label>Publisher Name </label>
+                    <input type="text" formControlName="publisher" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.publisher.errors }" />
 
-                <div *ngIf="submitted && f.publisher.errors" class="invalid-feedback">
-                    <div *ngIf="f.publisher.errors.required">Publisher Name is required</div>
+                    <div *ngIf="submitted && f.publisher.errors" class="invalid-feedback">
+                        <div *ngIf="f.publisher.errors.required">Publisher Name is required</div>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col" formArrayName="authers">
+                <div class="form-group col " formArrayName="authers">
                     <label>Auther Name</label>
-                    {{authersName}}
-                    <div  *ngFor="let auther of authersName; let i=index">
-                        <input (change)="test(authers.controls[i], authers)" type="text" chagne class="form-control" [formControl]="authers.controls[i]"
-                            [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" />
-
-                        <label>{{auther}}</label>
-                        <span (click)="removeAuther(i)">delete</span>
+                    <div class="autherBlock row" *ngFor="let auther of authersName; let i=index" >
+                        <div class="col-6">
+                                <input (change)="test(authers.controls[i], authers)" *ngIf="i == (authersName.length -1) " type="text" chagne class="form-control autherInput"
+                                [formControl]="authers.controls[i]"
+                                [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" />
+                            <span class="col-6"  *ngIf="i != (authersName.length -1) ">{{authers.controls[i].value}}</span>
+                        </div>
+                        <div class="col-6">
+                            <span class="deleteButton" *ngIf="i != (authersName.length -1) " (click)="removeAuther(i)"><fa name="trash" animation="spin"></fa></span>
+                            <span class="addButton"*ngIf="i == (authersName.length -1) " (click)="addAuther()"><fa name="plus" animation="spin"></fa></span>
+                        </div>
+                        
                     </div>
-                    <span (click)="addAuther()">add</span>
                     <!-- <input type="text" formControlName="authers" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" /> -->
                     <div *ngIf="submitted && f.authers.errors" class="invalid-feedback">

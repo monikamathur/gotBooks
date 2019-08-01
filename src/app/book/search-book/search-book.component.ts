@@ -11,11 +11,12 @@ import { LoaderService } from '../../loader.service'
 })
 export class SearchBookComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-
+  errorMessage :String = ''
   constructor(private BookService: BookService, private toastr: ToastrService, private loaderService: LoaderService) { 
     this.dtOptions = {
       searching: false
     };
+    
     this.BookService.searchBook(this.searchTerm$)
     .subscribe(results => {
       this.loaderService.stopLoading();
@@ -23,6 +24,9 @@ export class SearchBookComponent implements OnInit {
     },
     (err)=>{
       this.loaderService.stopLoading();
+      this.errorMessage = "No Records Found"
+    },
+    ()=>{
     }
   );
   }

@@ -6,4 +6,23 @@
     display: flex;  
     flex-direction: column;
   }
- 
+  .autherBlock {
+    margin: 15px 0px;
+    }
+  .deleteButton {
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px 5px;
+    background-color: #007bff;
+    margin-top: 5px;
+    color: white;  }
+  .addButton {
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px 5px;
+    background-color: #007bff;
+    color: white;  }
+ .autherInput {
+  width: 60%;
+ }

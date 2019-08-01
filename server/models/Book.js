@@ -47,10 +47,6 @@ var handleE11000 = function (error, res, next) {
         next();
     }
 };
-// BookSchema.post('insertMany', handleE11000);
-// BookSchema.post('save', handleE11000);
-// BookSchema.post('update', handleE11000);
-// BookSchema.post('findOneAndUpdate', handleE11000);
 
 var Book = mongoose.model('Book', BookSchema);
 module.exports = Book;

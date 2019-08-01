@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { BookService } from '../../book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -22,7 +22,7 @@ export class AddBookComponent implements OnInit {
     this.addBookForm = this.formBuilder.group({
       name: ['', Validators.required],
       isbn: ['', Validators.required],
-      authers: this.formBuilder.array([null, Validators.required]),
+      authers: this.formBuilder.array([null]),
       country: ['', Validators.required],
       number_of_pages: ['', Validators.required],
       publisher: ['', Validators.required],
@@ -40,7 +40,6 @@ export class AddBookComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.addBookForm.invalid) {
       return;
@@ -71,6 +70,7 @@ export class AddBookComponent implements OnInit {
   }
 
   onReset() {
+    this.authersName = ['']
     this.submitted = false;
     this.addBookForm.reset();
   }
@@ -78,6 +78,11 @@ export class AddBookComponent implements OnInit {
   getBook(id) {
     this.BookService.getBookById(id).subscribe((data) => {
       this.addBookForm.patchValue(data);
+      for(let i=0;i<data['authers'].length;i++){
+        this.addAuther(data['authers'][i])
+      }
+      this.authersName = data['authers']
+      this.addBookForm.addControl('-id', new FormControl())
       this.addBookForm.controls['_id'].setValue(id);
     }, (err) => {
       this.toastr.error(err.error.message, 'Error');
@@ -89,8 +94,7 @@ export class AddBookComponent implements OnInit {
  }
   addAuther(item) {
     this.authersName.push(item);
-    this.authers.push(this.formBuilder.control(false));
-    console.log(this.authers)
+    this.authers.push(this.formBuilder.control(item));
   }
   removeAuther(index) {
     if (index > -1) {
@@ -99,10 +103,5 @@ export class AddBookComponent implements OnInit {
     this.authers.removeAt(index);
   }
 
-  test(data, a){
-    console.log(data)
-    console.log(a)
-
-  }
 
 }

@@ -6,7 +6,7 @@ let createValidationFor = (route) => {
             return [
                 check('name').not().isEmpty(),
                 check('isbn').not().isEmpty().isLength({ min: 4 }),
-                check('auther').not().isEmpty(),
+                check('authers').not().isEmpty(),
                 check('country').not().isEmpty(),
                 check('number_of_pages').not().isEmpty(),
                 check('publisher').not().isEmpty(),

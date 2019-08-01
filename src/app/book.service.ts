@@ -27,7 +27,7 @@ export class BookService {
   }
 
   public editBook(data) {
-    return this.httpClient.put(this.bookApiURL, data);
+    return this.httpClient.patch(this.bookApiURL, data);
   }
 
   public deleteBook(id) {
