@@ -58,11 +58,11 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col">
+                <div class="form-group col" formArrayName="authers">
                     <label>Auther Name</label>
                     {{authersName}}
-                    <div formArrayName="authers" *ngFor="let auther of authersName; let i=index">
-                        <input type="text" class="form-control" formControlName="itrn"
+                    <div  *ngFor="let auther of authersName; let i=index">
+                        <input (change)="test(authers.controls[i], authers)" type="text" chagne class="form-control" [formControl]="authers.controls[i]"
                             [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" />
 
                         <label>{{auther}}</label>

@@ -90,12 +90,19 @@ export class AddBookComponent implements OnInit {
   addAuther(item) {
     this.authersName.push(item);
     this.authers.push(this.formBuilder.control(false));
+    console.log(this.authers)
   }
   removeAuther(index) {
     if (index > -1) {
       this.authersName.splice(index, 1);
     }
     this.authers.removeAt(index);
+  }
+
+  test(data, a){
+    console.log(data)
+    console.log(a)
+
   }
 
 }
