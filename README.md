@@ -19,11 +19,3 @@ User visits the URL. A list of books will be shown
 They can add or edit a book by clicking a button
 User can search any book by name in search menu
 
-### Credentials
-
-* Admin
-   User ID = 12341
-   Password = 1234
-* User
-   User ID = 12342
-   Password = 1234
