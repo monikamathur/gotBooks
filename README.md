@@ -12,10 +12,12 @@ git clone https://github.com/monikamathur/gotBooks.git
 cd gotBooks
 npm install
 npm start 
+App will start on localhost:3000 
 ```
 
 ### Funcationality
 User visits the URL. A list of books will be shown
 They can add or edit a book by clicking a button
 User can search any book by name in search menu
+
 
