@@ -60,14 +60,15 @@
             <div class="form-row">
                 <div class="form-group col">
                     <label>Auther Name</label>
+                    {{authersName}}
                     <div formArrayName="authers" *ngFor="let auther of authersName; let i=index">
-                        <input type="text" formControlName="authers[i]" class="form-control"
+                        <input type="text" class="form-control" formControlName="itrn"
                             [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" />
 
                         <label>{{auther}}</label>
-                        <button (click)="removeAuther(i)">delete</button>
+                        <span (click)="removeAuther(i)">delete</span>
                     </div>
-                    <button (click)="addAuther()">add</button>
+                    <span (click)="addAuther()">add</span>
                     <!-- <input type="text" formControlName="authers" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f.authers.errors }" /> -->
                     <div *ngIf="submitted && f.authers.errors" class="invalid-feedback">

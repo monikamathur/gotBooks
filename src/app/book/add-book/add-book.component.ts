@@ -16,7 +16,7 @@ export class AddBookComponent implements OnInit {
   isEdit;
   constructor(private formBuilder: FormBuilder, private BookService: BookService,
     private toastr: ToastrService, private route: ActivatedRoute) { }
-  authersName: String[];
+  authersName: String[] = [''];
   ngOnInit() {
 
     this.addBookForm = this.formBuilder.group({

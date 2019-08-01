@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../book.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
+import { LoaderService } from '../../loader.service'
 
 @Component({
   selector: 'app-search-book',
@@ -11,19 +12,28 @@ import { Subject } from 'rxjs';
 export class SearchBookComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
 
-  constructor(private BookService: BookService, private toastr: ToastrService,) { 
+  constructor(private BookService: BookService, private toastr: ToastrService, private loaderService: LoaderService) { 
     this.dtOptions = {
       searching: false
     };
     this.BookService.searchBook(this.searchTerm$)
     .subscribe(results => {
+      this.loaderService.stopLoading();
       this.filterData = JSON.parse(results['data']);
-    });
+    },
+    (err)=>{
+      this.loaderService.stopLoading();
+    }
+  );
   }
   filterData;
   searchTerm$ = new Subject<string>();
 
   ngOnInit() {
+  }
+  
+  startLoader(){
+    this.loaderService.startLoading();
   }
 
 }

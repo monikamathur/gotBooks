@@ -11,13 +11,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SearchBookComponent } from './book/search-book/search-book.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     AddBookComponent,
-    SearchBookComponent
+    SearchBookComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'dist/gotBooks')));
 app.use('/', express.static(path.join(__dirname, 'dist/gotBooks')));
 app.use('/add', express.static(path.join(__dirname, 'dist/gotBooks')));
 app.use('/list', express.static(path.join(__dirname, 'dist/gotBooks')));
+app.use('/search', express.static(path.join(__dirname, 'dist/gotBooks')));
 app.use('/api/book', bookRouter);
 
 
