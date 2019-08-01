@@ -24,9 +24,9 @@
           <td scope="row">{{book?.isbn}}</td>
           <td>{{book?.number_of_pages}}</td>
           <td scope="row">{{book?.release_date | date:shortDate}}</td>
-          <td><a class="btn btn-sm btn-info" (click)="editBook(book._id)">
+          <td><a class="btn btn-sm btn-info" (click)="deleteBook(book._id)">
               <fa name="trash" animation="spin"></fa></a>
-              <a class="btn btn-sm btn-info" (click)="deleteBook(book._id)">
+              <a class="btn btn-sm btn-info" (click)="editBook(book._id)">
                 <fa name="edit" animation="spin"></fa>
               </a>
           </td>

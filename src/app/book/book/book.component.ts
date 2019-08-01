@@ -14,7 +14,6 @@ export class BookComponent implements OnInit {
     private toastr: ToastrService, private router: Router) {
   }
   booksData: any;
-  userData: any;
   ngOnInit() {
     this.getBooks();
 
